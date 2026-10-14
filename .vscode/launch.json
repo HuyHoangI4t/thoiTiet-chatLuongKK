@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Weather & AQI App",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Weather & AQI App (floss)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "floss"]
+    },
+    {
+      "name": "Weather & AQI App (gms)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "gms"]
+    }
+  ]
+}

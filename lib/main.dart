@@ -1,0 +1,21 @@
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rain/app.dart';
+import 'package:rain/core/bootstrap/app_initializer.dart';
+import 'package:rain/core/di/provider_refs.dart';
+
+/// Ngôn ngữ mặc định và dự phòng khi khởi động
+const Locale defaultAppLocale = Locale('vi', 'VN');
+const Locale fallbackAppLocale = Locale('en', 'US');
+
+/// Entry point: bootstraps dependencies and runs [RainApp].
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final bootstrap = await AppInitializer.initialize();
+  runApp(
+    ProviderScope(
+      overrides: [bootstrapProvider.overrideWithValue(bootstrap)],
+      child: RainApp(bootstrap: bootstrap),
+    ),
+  );
+}
